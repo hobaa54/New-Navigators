@@ -1,0 +1,39 @@
+<div class="div ">
+    <ul class="nav justify-content-center py-3 shadow-lg  ">
+        <div class="flex d-flex align-items-center w-100">
+            <div class="line"></div>
+
+            <div class="logo pe-3">
+                <img src="../../../assets/images/logo.png" class="rounded-circle">
+            </div>
+            <h1 class="text-light fw-bold">
+                نظام توجيه الطرق
+            </h1>
+            <div class="line"></div>
+
+        </div>
+
+    </ul>
+
+    <p class=" chose text-center my-5">اختر الطريق الذي تريد الذهاب اليه</p>
+
+
+    <div class="container-fluid">
+        <select class="form-select w-75 mx-auto mb-5" [(ngModel)]="selectedRoad">
+
+            <option [ngValue]="null" disabled>
+                اسم الطريق
+            </option>
+            <@for (road of roads; track road.id){ <option [ngValue]="road">
+                {{ road.name }}
+                </option>
+                }
+        </select>
+
+        <button class="btn mx-auto d-block w-25 rounded-4 fw-bold" (click)="goToDetails()">اختيار المكان</button>
+    </div>
+    <p *ngIf="showError" class="text-danger text-center">
+        بالرجاء اختيار اسم الطريق
+
+    </p>
+</div>
