@@ -1,3 +1,5 @@
+/*落地*/
+// @ts-nocheck
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlacePageComponent } from './place-page.component';

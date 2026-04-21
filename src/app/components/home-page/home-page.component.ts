@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SelectionService } from '../../services/selection.service'; // تأكد من المسار الصحيح
 
 @Component({
   selector: 'app-home-page',
@@ -10,8 +11,10 @@ import { Router } from '@angular/router';
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent {
   private router = inject(Router);
+  private selectionService = inject(SelectionService); // حقن السيرفيس
+
   selectedRoad: any = null;
   showError = false;
 
@@ -22,7 +25,8 @@ export class HomePageComponent implements OnInit {
       places: [
         { id: 1, name: 'مبيت ظباط', building: 1 },
         { id: 2, name: 'مبيت ظباط', building: 2 },
-        { id: 3, name: 'كافتيريا', building: 1 }
+        { id: 3, name: 'كافتيريا', building: 1 },
+        { id: 4, name: 'مبيت القائد', building: 2 },
       ]
     },
     {
@@ -36,10 +40,6 @@ export class HomePageComponent implements OnInit {
     }
   ];
 
-  ngOnInit(): void {
-    // كان فيه spinner واتشال خلاص
-  }
-
   goToDetails(): void {
     if (!this.selectedRoad) {
       this.showError = true;
@@ -48,7 +48,14 @@ export class HomePageComponent implements OnInit {
 
     this.showError = false;
 
-    this.router.navigate(['/details'], {
+    // 1. تصفير أي اختيارات قديمة في السيرفيس (عشان تبدأ رحلة جديدة)
+    this.selectionService.clearAll();
+
+    // 2. تخزين الطريق الجديد في السيرفيس (ده هيخليه يتحفظ في localStorage لو نفذت حل الريفرش)
+    this.selectionService.selectedRoad = this.selectedRoad;
+
+    // 3. الانتقال لصفحة الـ road مع تمرير الـ state كزيادة تأكيد
+    this.router.navigate(['/road'], {
       state: { road: this.selectedRoad }
     });
   }

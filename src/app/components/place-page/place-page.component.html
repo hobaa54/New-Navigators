@@ -1,1 +1,57 @@
-<p>place-page works!</p>
+<div class="div">
+    <ul class="nav justify-content-center py-3 shadow-lg">
+        <div class="flex d-flex align-items-center w-100">
+            <div class="line"></div>
+
+            <div class="logo pe-3">
+                <img src="../../../assets/images/logo.png" class="rounded-circle">
+            </div>
+
+            <h1 class="text-light fw-bold">
+                نظام توجيه الطرق
+            </h1>
+
+            <div class="line"></div>
+        </div>
+    </ul>
+
+    <div class="back ms-auto me-4">
+        <button class="btn btn-danger mt-2 d-block ms-auto backbtn" routerLink="/road">
+            <span class="bi-box-arrow-in-up-left pe-2"></span>
+            الرجوع
+        </button>
+    </div>
+
+    <p class="chose text-center mb-5">تفاصيل المكان والمبنى</p>
+
+    <div class="container-fluid">
+    <div class="row g-4 justify-content-center">
+            <div class="col-md-8">
+                <div class="card border-0  info-card">
+                    <div class="card-header  text-white text-center py-3">
+                        <h3 class="m-0"><i class="bi bi-info-circle me-2"></i> تفاصيل الموقع</h3>
+                        
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="label text-muted">اسم الطريق</span>
+                                <p class="value fw-bold text-dark">{{ road?.name || 'غير محدد' }}</p>
+                            </div>
+                            <div class="info-item border-start ps-3">
+                                <span class="label text-muted">المكان</span>
+                                <p class="value fw-bold text-dark">{{ place?.name || 'غير محدد' }}</p>
+                            </div>
+                            <div class="info-item border-start ps-3">
+                                <span class="label text-muted">رقم المبنى</span>
+                                <p class="value fw-bold text-primary fs-4">{{ building || '---' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+    </div>

@@ -1,0 +1,161 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+.div {
+    background: radial-gradient(circle at bottom, rgba(0, 140, 255, 0.15), transparent 60%),
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 40%),
+        linear-gradient(180deg, #050b1a 0%, #0a1630 50%, #050b1a 100%);
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    position: relative;
+    margin: 0;
+}
+
+.nav {
+    background: radial-gradient(circle at bottom, rgba(0, 140, 255, 0.15), transparent 60%),
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 40%),
+        linear-gradient(180deg, #061439 0%, #071535 50%, #050b1a 100%);
+    border-bottom: 1px solid rgba(255, 251, 251, 0.249);
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+}
+
+.line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ffffff94, transparent);
+    opacity: 0.7;
+
+}
+
+/* !search box  */
+
+
+/*& carosel*/
+/* You can add global styles to this file, and also import other style files */
+
+
+.div {
+    background: radial-gradient(circle at bottom, rgba(0, 140, 255, 0.15), transparent 60%),
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 40%),
+        linear-gradient(180deg, #050b1a 0%, #0a1630 50%, #050b1a 100%);
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    position: relative;
+    margin: 0;
+}
+
+.nav {
+    background: radial-gradient(circle at bottom, rgba(0, 140, 255, 0.15), transparent 60%),
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 40%),
+        linear-gradient(180deg, #061439 0%, #071535 50%, #050b1a 100%);
+    border-bottom: 1px solid rgba(255, 251, 251, 0.249);
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+}
+
+.line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ffffff94, transparent);
+    opacity: 0.7;
+
+}
+
+
+
+.chose {
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(177, 166, 166);
+}
+
+/*& carosel*/
+
+
+.btn {
+    background: linear-gradient(90deg, #4da3ff80, #4da3ff4d);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+
+.backbtn {
+    width: 150px;
+    background: linear-gradient(90deg, #035dbd, #10345970);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+
+/* تنسيق كروت المعلومات */
+.info-card,
+.detail-card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+/* تنسيق الجريد الداخلي للمعلومات */
+.info-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.info-item {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+}
+
+.info-item .label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.info-item .value {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+
+
+.card-header {
+    background: radial-gradient(circle at bottom, rgba(0, 140, 255, 0.15), transparent 60%),
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 40%),
+        linear-gradient(180deg, #050b1a 0%, #0a1630 50%, #050b1a 100%);
+}
+
+.line {
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    flex-grow: 1;
+}

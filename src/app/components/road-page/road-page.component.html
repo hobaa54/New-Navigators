@@ -1,1 +1,70 @@
-<p>road-page works!</p>
+<div class="div">
+    <ul class="nav justify-content-center py-3 shadow-lg">
+        <div class="flex d-flex align-items-center w-100">
+            <div class="line"></div>
+
+            <div class="logo pe-3">
+                <img src="../../../assets/images/logo.png" class="rounded-circle">
+            </div>
+
+            <h1 class="text-light fw-bold">
+                نظام توجيه الطرق
+            </h1>
+
+            <div class="line"></div>
+        </div>
+    </ul>
+
+    <div class="back ms-auto me-4">
+        <button class="btn btn-danger mt-2 d-block ms-auto backbtn" routerLink="/">
+            <span class="bi-box-arrow-in-up-left pe-2"></span>
+            الرجوع
+        </button>
+    </div>
+
+    <p class="chose text-center mb-5">اختر المكان الذي تريد الذهاب اليه</p>
+
+    <div class="container-fluid">
+
+        <!-- اختيار المكان -->
+        @if (places.length > 0) {
+        <select class="form-select mb-3 w-75 mx-auto mb-5" [(ngModel)]="selectedPlace" (change)="onSelectPlace()">
+
+            <option [ngValue]="null" disabled>اختار المكان</option>
+
+            @for (place of places; track place.id) {
+            <option [ngValue]="place">
+                {{ place.name }}
+            </option>
+            }
+
+        </select>
+        }
+
+        <!-- اختيار المبنى -->
+        @if (buildings.length > 0) {
+        <select class="form-select mb-3 w-75 mx-auto mb-5" [(ngModel)]="selectedBuilding">
+            <option [ngValue]="null" disabled>اختار المبني</option>
+
+            @for (b of buildings; track b) {
+            <option>
+                مبنى {{ b }}
+            </option>
+            }
+
+        </select>
+        }
+
+        <button class="btn mx-auto d-block w-25 rounded-4 fw-bold" (click)="goToDetails()">
+            التفاصيل
+        </button>
+
+    </div>
+    <p *ngIf="showError" class="text-danger text-center">
+        @if (!selectedPlace) {
+        من فضلك اختر المكان أولاً
+        } @else if (buildings.length > 0 && !selectedBuilding) {
+            هذا المكان موجود في عدة مباني، من فضلك اختر رقم المبنى
+        }
+    </p>
+</div>
