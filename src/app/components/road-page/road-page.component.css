@@ -94,9 +94,9 @@
 }
 
 
-.backbtn{
+.backbtn {
     width: 150px;
-       background: linear-gradient(90deg, #035dbd, #10345970);
+    background: linear-gradient(90deg, #035dbd, #10345970);
     color: white;
     padding: 10px 20px;
     border: none;
@@ -105,4 +105,18 @@
     font-weight: 600;
     cursor: pointer;
     transition: background 0.3s ease;
+}
+
+/* ضبط اتجاه السهم والنص للعربي */
+::ng-deep .ng-select.custom-ng-select {
+    text-align: right;
+    direction: rtl;
+}
+
+::ng-deep .ng-select .ng-select-container {
+    border-radius: 12px;
+    /* خليه دائري شوية زي زرايرك */
+    padding: 8px;
+    border: 1px solid #ced4da;
+    min-height: 50px;
 }

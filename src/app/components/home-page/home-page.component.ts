@@ -22,24 +22,122 @@ export class HomePageComponent {
   roads = [
     {
       id: 2,
-      name: 'طريق السويس',
+      name: ' السويس',
       places: [
         { id: 1, name: 'مبيت ظباط', building: 1 },
         { id: 2, name: 'مبيت ظباط', building: 2 },
         { id: 3, name: 'كافتيريا', building: 1 },
         { id: 4, name: 'مبيت القائد', building: 1 },
-        { id: 5, name: 'مبيت القائد', building: 2 },
+
+        
       ]
     },
     {
       id: 3,
-      name: 'طريق مطروح',
+      name: ' مطروح',
       places: [
         { id: 6, name: 'مبيت ظباط', building: 1 },
         { id: 7, name: 'مبيت ظباط', building: 2 },
         { id: 8, name: 'كافتيريا', building: 1 }
       ]
-    }
+    },
+       {
+      id: 3,
+      name: ' الاسماعيليه',
+      places: [
+        { id: 6, name: 'مبيت ظباط', building: 1 },
+        { id: 7, name: 'مبيت ظباط', building: 2 },
+        { id: 8, name: 'كافتيريا', building: 1 }
+      ]
+    },{
+      id: 3,
+      name: ' الاسماعيليه',
+      places: [
+        { id: 6, name: 'مبيت ظباط', building: 1 },
+        { id: 7, name: 'مبيت ظباط', building: 2 },
+        { id: 8, name: 'كافتيريا', building: 1 }
+      ]
+    },{
+      id: 3,
+      name: ' الاسماعيليه',
+      places: [
+        { id: 6, name: 'مبيت ظباط', building: 1 },
+        { id: 7, name: 'مبيت ظباط', building: 2 },
+        { id: 8, name: 'كافتيريا', building: 1 }
+      ]
+    },{
+      id: 3,
+      name: ' الاسماعيليه',
+      places: [
+        { id: 6, name: 'مبيت ظباط', building: 1 },
+        { id: 7, name: 'مبيت ظباط', building: 2 },
+        { id: 8, name: 'كافتيريا', building: 1 }
+      ]
+    },{
+      id: 3,
+      name: ' الاسماعيليه',
+      places: [
+        { id: 6, name: 'مبيت ظباط', building: 1 },
+        { id: 7, name: 'مبيت ظباط', building: 2 },
+        { id: 8, name: 'كافتيريا', building: 1 }
+      ]
+    },{
+      id: 3,
+      name: ' الاسماعيليه',
+      places: [
+        { id: 6, name: 'مبيت ظباط', building: 1 },
+        { id: 7, name: 'مبيت ظباط', building: 2 },
+        { id: 8, name: 'كافتيريا', building: 1 }
+      ]
+    },{
+      id: 3,
+      name: ' الاسماعيليه',
+      places: [
+        { id: 6, name: 'مبيت ظباط', building: 1 },
+        { id: 7, name: 'مبيت ظباط', building: 2 },
+        { id: 8, name: 'كافتيريا', building: 1 }
+      ]
+    },{
+      id: 3,
+      name: ' الاسماعيليه',
+      places: [
+        { id: 6, name: 'مبيت ظباط', building: 1 },
+        { id: 7, name: 'مبيت ظباط', building: 2 },
+        { id: 8, name: 'كافتيريا', building: 1 }
+      ]
+    },{
+      id: 3,
+      name: ' الاسماعيليه',
+      places: [
+        { id: 6, name: 'مبيت ظباط', building: 1 },
+        { id: 7, name: 'مبيت ظباط', building: 2 },
+        { id: 8, name: 'كافتيريا', building: 1 },
+      ]
+    },{
+      id: 3,
+      name: ' الاسماعيليه',
+      places: [
+        { id: 6, name: 'مبيت ظباط', building: 1 },
+        { id: 7, name: 'مبيت ظباط', building: 2 },
+        { id: 8, name: 'كافتيريا', building: 1 }
+      ]
+    },{
+      id: 3,
+      name: ' الاسماعيليه',
+      places: [
+        { id: 6, name: 'مبيت ظباط', building: 1 },
+        { id: 7, name: 'مبيت ظباط', building: 2 },
+        { id: 8, name: 'كافتيريا', building: 1 }
+      ]
+    },{
+      id: 3,
+      name: ' الاسماعيليه',
+      places: [
+        { id: 6, name: 'مبيت ظباط', building: 1 },
+        { id: 7, name: 'مبيت ظباط', building: 2 },
+        { id: 8, name: 'كافتيريا', building: 1 }
+      ]
+    },
   ];
 
   goToDetails(): void {

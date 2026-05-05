@@ -11,13 +11,33 @@
     </ul>
 
     <p class="chose text-center my-5">اختر الطريق الذي تريد الذهاب إليه</p>
+    <!--* New Edition -->
+    <div class="container-fluid mt-4 p-4">
+        <div class="row justify-content-center g-4">
+            @for (road of roads; track road.id) {
+            <div class="col-md-2">
+                <div class="card h-100 shadow-sm border-0 rounded-4 road-card text-center p-4"
+                    [class.selected-card]="selectedRoad === road" (click)="selectedRoad = road; showError = false"
+                    (click)="goToDetails()">
 
-    <div class="container-fluid">
+                    <div class="card-icon mb-3">
+                    </div>
+                    <h3 class="fw-bold">{{ road.name }}</h3>
+                </div>
+            </div>
+            }
+        </div>
+
+
+    </div>
+    <!--*End New Edition -->
+
+    <!-- <div class="container-fluid">
         <select class="form-select w-75 mx-auto mb-4" [(ngModel)]="selectedRoad" (change)="showError = false">
             <option [ngValue]="null" disabled>اسم الطريق</option>
 
             @for (road of roads; track road.id) {
-            <option [ngValue]="road">{{ road.name }}</option>
+            <option [ngValue]="road">{{ road.name}}</option>
             }
         </select>
 
@@ -30,5 +50,5 @@
             يرجى اختيار اسم الطريق أولاً
         </p>
         }
-    </div>
+    </div> -->
 </div>

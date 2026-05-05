@@ -1,4 +1,4 @@
-<div class="div">
+<div class="div" dir="rtl">
     <ul class="nav justify-content-center py-3 shadow-lg">
         <div class="flex d-flex align-items-center w-100">
             <div class="line"></div>
@@ -21,18 +21,20 @@
 
     <div class="container-fluid">
 
+        <!-- استبدل جزء الـ select بتاع الأماكن بالكود ده -->
         @if (places.length > 0) {
-        <select class="form-select mb-3 w-75 mx-auto mb-4" [(ngModel)]="selectedPlace" (change)="onSelectPlace()">
-            <option [ngValue]="null" disabled>اختار المكان</option>
-            @for (place of uniquePlaces; track place.name) {
-            <option [ngValue]="place">{{ place.name }}</option>
-            }
-        </select>
+        <div class="w-75 mx-auto mb-4" dir="rtl">
+            <ng-select [items]="uniquePlacesList" bindLabel="name" [(ngModel)]="selectedPlace" (change)="onSelectPlace()"
+                placeholder="اختر المكان أو ابحث هنا..." notFoundText="عذراً، لا يوجد مكان بهذا الاسم"
+                [searchable]="true" [clearable]="true" class="custom-ng-select">
+            </ng-select>
+        </div>
         }
 
         @if (buildings.length > 1) {
         <div class="animate__animated animate__fadeIn">
-            <select class="form-select mb-3 w-75 mx-auto mb-4 animate__animated animate__fadeIn" [(ngModel)]="selectedBuilding">
+            <select class="form-select mb-3 w-75 mx-auto mb-4 animate__animated animate__fadeIn"
+                [(ngModel)]="selectedBuilding">
                 <option [ngValue]="null" disabled>هذا المكان له عدة مباني.. اختر رقم المبنى</option>
                 @for (b of buildings; track b) {
                 <option [ngValue]="b">مبنى {{ b }}</option>

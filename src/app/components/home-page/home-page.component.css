@@ -54,3 +54,30 @@
     cursor: pointer;
     transition: background 0.3s ease;
 }
+.road-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+    border: 2px solid transparent !important;
+}
+
+/* تأثير عند الوقوف بالماوس */
+.road-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    border-color: #007bff !important;
+}
+
+/* تأثير عند اختيار الكارد */
+.selected-card {
+    background-color: #e7f1ff !important;
+    border-color: #007bff !important;
+    box-shadow: 0 5px 15px rgba(0,123,255,0.3) !important;
+}
+
+.road-card h3 {
+    color: #333;
+}
+.col-md-2{
+    width: 250px;
+}
