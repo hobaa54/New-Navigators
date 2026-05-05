@@ -13,11 +13,10 @@ import { SelectionService } from '../../services/selection.service';
 })
 export class RoadPageComponent implements OnInit {
 
-  // حقن السيرفيس
   private selectionService = inject(SelectionService);
   private router = inject(Router);
 
-  // ربط المتغيرات بالسيرفيس
+  // ربط المتغيرات بالسيرفيس مباشرة (Getters & Setters)
   get selectedRoad() { return this.selectionService.selectedRoad; }
   set selectedRoad(val) { this.selectionService.selectedRoad = val; }
 
@@ -34,61 +33,69 @@ export class RoadPageComponent implements OnInit {
   set buildings(val) { this.selectionService.buildings = val; }
 
   showError = false;
+
+  // فلتـرة الأسماء المتكررة لعرضها في السيلكت الأول (لحل مشكلة التكرار في الصورة)
+  get uniquePlaces() {
+    const seenNames = new Set();
+    return this.places.filter(place => {
+      if (seenNames.has(place.name)) return false;
+      seenNames.add(place.name);
+      return true;
+    });
+  }
+
   ngOnInit(): void {
-    // 1. لو في طريق جاي في الـ state (جاي من صفحة الـ Home)
+    // جلب البيانات من الـ state أو الاستمرار باستخدام بيانات السيرفيس (localStorage)
     if (history.state && history.state.road) {
       this.selectedRoad = history.state.road;
     }
 
-    // 2. تأكد إن الـ places موجودة (سواء من الـ state أو الـ localStorage اللي في السيرفيس)
     if (this.selectedRoad) {
       this.places = this.selectedRoad.places || [];
-    } else {
-      // لو مفيش طريق خالص (مثلاً فتح الصفحة دايركت بدون اختيار)
-      // ممكن توجيهه لصفحة الـ home
-      // this.router.navigate(['/']);
     }
   }
 
-  // دالة لمسح البيانات المخزنة في السيرفيس
-  resetSelections() {
-    this.selectedPlace = null;
-    this.selectedBuilding = null;
-    this.buildings = [];
-    // لا نمسح الـ places هنا لأنها ستُعاد تعبئتها من الطريق الجديد فوراً
-  }
   onSelectPlace() {
-    if (!this.selectedPlace) return;
+    this.showError = false; // تصفير الخطأ عند تغيير الاختيار
 
-    const samePlaces = this.places.filter(
-      p => p.name === this.selectedPlace.name
-    );
+    if (!this.selectedPlace) {
+      this.buildings = [];
+      this.selectedBuilding = null;
+      return;
+    }
 
-    this.buildings = samePlaces.length > 1 ? samePlaces.map(p => p.building) : [];
-    this.selectedBuilding = null;
+    // جلب كل الأماكن التي لها نفس الاسم المختار لمعرفة مبانيها
+    const samePlaces = this.places.filter(p => p.name === this.selectedPlace.name);
+    this.buildings = samePlaces.map(p => p.building);
+
+    // --- التعديل الذكي (Auto-selection) ---
+    if (this.buildings.length === 1) {
+      // لو المكان ملوش غير مبنى واحد، نختاره فوراً للمستخدم
+      this.selectedBuilding = this.buildings[0];
+    } else {
+      // لو في أكتر من مبنى، لازم المستخدم يختار بنفسه
+      this.selectedBuilding = null;
+    }
   }
 
   goToDetails(): void {
-    // الشرط الجديد: 
-    // 1. يجب اختيار مكان أولاً (selectedPlace)
-    // 2. إذا كانت هناك مباني متاحة (buildings.length > 0)، يجب اختيار مبنى (selectedBuilding)
-
+    // التحقق من أن الاختيارات مكتملة
     const isPlaceSelected = !!this.selectedPlace;
-    const hasBuildings = this.buildings.length > 0;
+    const hasMultipleBuildings = this.buildings.length > 1;
     const isBuildingSelected = !!this.selectedBuilding;
 
-    if (!isPlaceSelected || (hasBuildings && !isBuildingSelected)) {
+    // يظهر الخطأ فقط إذا لم يختار المكان، أو إذا كان هناك عدة مباني ولم يحدد أحدها
+    if (!isPlaceSelected || (hasMultipleBuildings && !isBuildingSelected)) {
       this.showError = true;
       return;
     }
 
     this.showError = false;
-
     this.router.navigate(['/place'], {
       state: {
         road: this.selectedRoad,
         place: this.selectedPlace,
-        building: this.selectedBuilding // لو مفيش مبنى هتبعت null عادي
+        building: this.selectedBuilding
       }
     });
   }

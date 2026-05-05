@@ -82,7 +82,8 @@
 
 
 .btn {
-    background: linear-gradient(90deg, #4da3ff80, #4da3ff4d);
+    background: linear-gradient(90deg, #035dbd, #10345970);
+
     color: white;
     padding: 10px 20px;
     border: none;
@@ -158,4 +159,17 @@
     height: 2px;
     background-color: rgba(255, 255, 255, 0.2);
     flex-grow: 1;
+}
+
+.navigat {
+    background: linear-gradient(90deg, #035dbd, #10345970);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 25px;
+
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }

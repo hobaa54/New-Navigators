@@ -13,11 +13,12 @@ import { SelectionService } from '../../services/selection.service'; // تأكد
 })
 export class HomePageComponent {
   private router = inject(Router);
-  private selectionService = inject(SelectionService); // حقن السيرفيس
+  private selectionService = inject(SelectionService);
 
   selectedRoad: any = null;
   showError = false;
 
+  // البيانات (مستقبلاً ستأتي من API)
   roads = [
     {
       id: 2,
@@ -26,16 +27,17 @@ export class HomePageComponent {
         { id: 1, name: 'مبيت ظباط', building: 1 },
         { id: 2, name: 'مبيت ظباط', building: 2 },
         { id: 3, name: 'كافتيريا', building: 1 },
-        { id: 4, name: 'مبيت القائد', building: 2 },
+        { id: 4, name: 'مبيت القائد', building: 1 },
+        { id: 5, name: 'مبيت القائد', building: 2 },
       ]
     },
     {
       id: 3,
       name: 'طريق مطروح',
       places: [
-        { id: 1, name: 'مبيت ظباط', building: 1 },
-        { id: 2, name: 'مبيت ظباط', building: 2 },
-        { id: 3, name: 'كافتيريا', building: 1 }
+        { id: 6, name: 'مبيت ظباط', building: 1 },
+        { id: 7, name: 'مبيت ظباط', building: 2 },
+        { id: 8, name: 'كافتيريا', building: 1 }
       ]
     }
   ];
@@ -48,13 +50,13 @@ export class HomePageComponent {
 
     this.showError = false;
 
-    // 1. تصفير أي اختيارات قديمة في السيرفيس (عشان تبدأ رحلة جديدة)
+    // 1. تصفير السيرفيس تماماً لبدء رحلة جديدة
     this.selectionService.clearAll();
 
-    // 2. تخزين الطريق الجديد في السيرفيس (ده هيخليه يتحفظ في localStorage لو نفذت حل الريفرش)
+    // 2. تخزين الطريق المختار في السيرفيس (لدعم الريفرش والـ Electron)
     this.selectionService.selectedRoad = this.selectedRoad;
 
-    // 3. الانتقال لصفحة الـ road مع تمرير الـ state كزيادة تأكيد
+    // 3. الانتقال لصفحة الطرق
     this.router.navigate(['/road'], {
       state: { road: this.selectedRoad }
     });
